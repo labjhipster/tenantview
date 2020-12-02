@@ -1,0 +1,53 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "es.lab.tenantview",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "monolith",
+    "baseName": "tenantview",
+    "packageName": "es.lab.tenantview",
+    "packageFolder": "es/lab/tenantview",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YjA3ZGM0NTlkZTcxNTM3MWUzMzEwNGIyNGY4MjM5MTQ3OTUyOGI1MzY3NzliYjgxNDJkZGViMzcyYTkwY2M0MGEyY2QzNWExMzVlM2EzY2RjNTEzMzY3MGZiMDUyMWExNjgwMjQ5YTljNjk3NWFmMzk0NjJjNzgyNzczNjRmNzE=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1606918995223,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-tenantview",
+        "version": "1.0.0"
+      }
+    ],
+    "enableTranslation": true,
+    "nativeLanguage": "es",
+    "languages": ["es", "en"],
+    "blueprints": [
+      {
+        "name": "generator-jhipster-tenantview",
+        "version": "1.0.0"
+      }
+    ]
+  }
+}
