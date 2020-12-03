@@ -1,0 +1,62 @@
+{
+  "name": "Job",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMinlength": "5",
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "JobType",
+      "fieldValues": "BOSS,SLAVE"
+    },
+    {
+      "fieldName": "minSalary",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "maxSalary",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "task",
+      "otherEntityRelationshipName": "linkedJob",
+      "relationshipName": "chore",
+      "otherEntityField": "title",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "job",
+      "relationshipName": "emp",
+      "otherEntityField": "lastName"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "jobHistory",
+      "otherEntityRelationshipName": "job",
+      "relationshipName": "history",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201203075433",
+  "entityTableName": "job",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["jhipsterSampleApplication"],
+  "tenantAware": false
+}

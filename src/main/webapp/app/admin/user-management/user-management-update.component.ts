@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { HttpResponse } from '@angular/common/http';
 
-import { LANGUAGES } from 'app/core/language/language.constants';
 import { User } from 'app/core/user/user.model';
 import { UserService } from 'app/core/user/user.service';
+
+import { AccountService } from 'app/core/auth/account.service';
+import { ICompany } from '../../shared/admin/company.model';
+import { CompanyService } from '../../admin/company/company.service';
 
 @Component({
   selector: 'jhi-user-mgmt-update',
@@ -12,9 +16,10 @@ import { UserService } from 'app/core/user/user.service';
 })
 export class UserManagementUpdateComponent implements OnInit {
   user!: User;
-  languages = LANGUAGES;
   authorities: string[] = [];
   isSaving = false;
+  currentAccount: any;
+  companies: ICompany[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -33,11 +38,26 @@ export class UserManagementUpdateComponent implements OnInit {
     activated: [],
     langKey: [],
     authorities: [],
+    company: [],
   });
 
-  constructor(private userService: UserService, private route: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    private userService: UserService,
+    private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private accountService: AccountService,
+    private companyService: CompanyService
+  ) {}
 
   ngOnInit(): void {
+    this.accountService.identity().subscribe(account => {
+      this.currentAccount = account;
+    });
+
+    if (this.accountService.hasAnyAuthority('ROLE_ADMIN')) {
+      this.companyService.query().subscribe((res: HttpResponse<ICompany[]>) => (this.companies = res.body || []));
+    }
+
     this.route.data.subscribe(({ user }) => {
       if (user) {
         this.user = user;
@@ -65,6 +85,7 @@ export class UserManagementUpdateComponent implements OnInit {
         () => this.onSaveError()
       );
     } else {
+      this.user.langKey = 'en';
       this.userService.create(this.user).subscribe(
         () => this.onSaveSuccess(),
         () => this.onSaveError()
@@ -82,6 +103,7 @@ export class UserManagementUpdateComponent implements OnInit {
       activated: user.activated,
       langKey: user.langKey,
       authorities: user.authorities,
+      company: user.company,
     });
   }
 
@@ -93,11 +115,15 @@ export class UserManagementUpdateComponent implements OnInit {
     user.activated = this.editForm.get(['activated'])!.value;
     user.langKey = this.editForm.get(['langKey'])!.value;
     user.authorities = this.editForm.get(['authorities'])!.value;
+    user.company = this.editForm.get(['company'])!.value;
   }
 
   private onSaveSuccess(): void {
     this.isSaving = false;
     this.previousState();
+  }
+  trackCompanyById(index: number, item: ICompany): any {
+    return item.id;
   }
 
   private onSaveError(): void {

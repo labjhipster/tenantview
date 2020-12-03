@@ -1,11 +1,11 @@
 version: '2'
 services:
-  tenantview-postgresql:
+  jhipstersampleapplication-postgresql:
     image: postgres:12.3
     # volumes:
-    #     - ~/volumes/jhipster/tenantview/postgresql/:/var/lib/postgresql/data/
+    #     - ~/volumes/jhipster/jhipsterSampleApplication/postgresql/:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=tenantview
+      - POSTGRES_USER=jhipsterSampleApplication
       - POSTGRES_PASSWORD=
       - POSTGRES_HOST_AUTH_METHOD=trust
     ports:

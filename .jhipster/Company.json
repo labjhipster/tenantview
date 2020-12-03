@@ -1,0 +1,39 @@
+{
+  "name": "Company",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength"],
+      "fieldValidateRulesMinlength": "3"
+    },
+    {
+      "fieldName": "idName",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength"],
+      "fieldValidateRulesMinlength": "3"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipName": "users",
+      "otherEntityName": "user",
+      "relationshipType": "one-to-many",
+      "otherEntityField": "login",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "company"
+    }
+  ],
+  "changelogDate": "20201203075742",
+  "entityTableName": "company",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "../admin",
+  "applications": ["jhipsterSampleApplication"],
+  "tenant": true
+}

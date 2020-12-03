@@ -1,22 +1,14 @@
 import { NgModule } from '@angular/core';
-import { TenantviewSharedLibsModule } from './shared-libs.module';
-import { FindLanguageFromKeyPipe } from './language/find-language-from-key.pipe';
+import { JhipsterSampleApplicationSharedLibsModule } from './shared-libs.module';
 import { AlertComponent } from './alert/alert.component';
 import { AlertErrorComponent } from './alert/alert-error.component';
 import { LoginModalComponent } from './login/login.component';
 import { HasAnyAuthorityDirective } from './auth/has-any-authority.directive';
 
 @NgModule({
-  imports: [TenantviewSharedLibsModule],
-  declarations: [FindLanguageFromKeyPipe, AlertComponent, AlertErrorComponent, LoginModalComponent, HasAnyAuthorityDirective],
+  imports: [JhipsterSampleApplicationSharedLibsModule],
+  declarations: [AlertComponent, AlertErrorComponent, LoginModalComponent, HasAnyAuthorityDirective],
   entryComponents: [LoginModalComponent],
-  exports: [
-    TenantviewSharedLibsModule,
-    FindLanguageFromKeyPipe,
-    AlertComponent,
-    AlertErrorComponent,
-    LoginModalComponent,
-    HasAnyAuthorityDirective,
-  ],
+  exports: [JhipsterSampleApplicationSharedLibsModule, AlertComponent, AlertErrorComponent, LoginModalComponent, HasAnyAuthorityDirective],
 })
-export class TenantviewSharedModule {}
+export class JhipsterSampleApplicationSharedModule {}

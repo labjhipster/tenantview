@@ -14,7 +14,34 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203074933_added_entity_BankAccount.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075033_added_entity_TheLabel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075133_added_entity_Operation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075233_added_entity_Department.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075333_added_entity_JobHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075433_added_entity_Job.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075533_added_entity_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075633_added_entity_Location.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075733_added_entity_Task.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075742_added_entity_Company.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075833_added_entity_GoldenBadge.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075933_added_entity_SilverBadge.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203080033_added_entity_Identifier.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203080133_added_entity_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203080233_added_entity_Region.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20201203074933_added_entity_constraints_BankAccount.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075133_added_entity_constraints_Operation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075233_added_entity_constraints_Department.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075333_added_entity_constraints_JobHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075433_added_entity_constraints_Job.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075533_added_entity_constraints_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075742-1__user_Company_constraints.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075742-2__company_user_data.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075833_added_entity_constraints_GoldenBadge.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203075933_added_entity_constraints_SilverBadge.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203080133_added_entity_constraints_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201203080233_added_entity_constraints_Region.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

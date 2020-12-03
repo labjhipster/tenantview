@@ -1,0 +1,36 @@
+{
+  "name": "Country",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "region",
+      "otherEntityRelationshipName": "country",
+      "relationshipName": "area"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "location",
+      "otherEntityRelationshipName": "country",
+      "relationshipName": "location",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201203080133",
+  "entityTableName": "country",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["jhipsterSampleApplication"],
+  "tenantAware": false
+}

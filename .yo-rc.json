@@ -1,37 +1,39 @@
 {
   "generator-jhipster": {
-    "promptValues": {
-      "packageName": "es.lab.tenantview",
-      "nativeLanguage": "es"
-    },
-    "jhipsterVersion": "6.10.5",
-    "applicationType": "monolith",
-    "baseName": "tenantview",
-    "packageName": "es.lab.tenantview",
-    "packageFolder": "es/lab/tenantview",
-    "serverPort": "8080",
     "authenticationType": "jwt",
     "cacheProvider": "ehcache",
-    "enableHibernateCache": true,
-    "websocket": false,
+    "clientFramework": "angularX",
+    "serverPort": "8080",
+    "serviceDiscoveryType": false,
+    "skipUserManagement": false,
+    "baseName": "jhipsterSampleApplication",
+    "buildTool": "maven",
     "databaseType": "sql",
     "devDatabaseType": "h2Disk",
+    "enableHibernateCache": true,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": false,
+    "jhiPrefix": "jhi",
+    "languages": ["en", "fr"],
+    "messageBroker": false,
+    "nativeLanguage": "en",
     "prodDatabaseType": "postgresql",
     "searchEngine": false,
-    "messageBroker": false,
-    "serviceDiscoveryType": false,
-    "buildTool": "maven",
-    "enableSwaggerCodegen": false,
-    "jwtSecretKey": "YjA3ZGM0NTlkZTcxNTM3MWUzMzEwNGIyNGY4MjM5MTQ3OTUyOGI1MzY3NzliYjgxNDJkZGViMzcyYTkwY2M0MGEyY2QzNWExMzVlM2EzY2RjNTEzMzY3MGZiMDUyMWExNjgwMjQ5YTljNjk3NWFmMzk0NjJjNzgyNzczNjRmNzE=",
-    "embeddableLaunchScript": false,
-    "useSass": true,
+    "skipClient": false,
+    "testFrameworks": ["protractor"],
+    "websocket": false,
+    "applicationType": "monolith",
+    "packageName": "io.github.jhipster.sample",
+    "packageFolder": "io/github/jhipster/sample",
+    "jhipsterVersion": "6.10.5",
+    "creationTimestamp": 1606981680561,
+    "skipServer": false,
     "clientPackageManager": "npm",
-    "clientFramework": "angularX",
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "creationTimestamp": 1606918995223,
-    "testFrameworks": [],
-    "jhiPrefix": "jhi",
+    "useSass": true,
+    "jwtSecretKey": "NzcyOWNhYmIwNmRlNzU4NTJjNWU2MzE2MmIzNWQ5OGE2NmQwMjkwZTRiMTJjOWNiODIwNWM3OWU2MDc5MmEwNDQxZjQ1OTI4ZmM0MTM1YmZkZjU4ZmUzZmVmNDQ1MWUyNmNjZWUyYTZjYWM4MWVkYzQ1MDA1YWNlYThjODY4NmM=",
+    "embeddableLaunchScript": false,
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "otherModules": [
@@ -40,14 +42,33 @@
         "version": "1.0.0"
       }
     ],
-    "enableTranslation": true,
-    "nativeLanguage": "es",
-    "languages": ["es", "en"],
     "blueprints": [
       {
         "name": "generator-jhipster-tenantview",
         "version": "1.0.0"
       }
     ]
+  },
+  "entities": [
+    "Company",
+    "BankAccount",
+    "TheLabel",
+    "Operation",
+    "Department",
+    "JobHistory",
+    "Job",
+    "Employee",
+    "Location",
+    "Task",
+    "GoldenBadge",
+    "SilverBadge",
+    "Identifier",
+    "Country",
+    "Region"
+  ],
+  "generator-jhipster-tenantview": {
+    "tenantName": "Company",
+    "tenantModule": "admin",
+    "tenantModelPath": "shared/admin"
   }
 }

@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-department-heading">Create or edit a Department</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_description">Description</label>
+                    <textarea class="form-control" name="description" id="field_description"
+                              formControlName="description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_advertisement">Advertisement</label>
+                    <div>
+                        <div *ngIf="editForm.get('advertisement')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('advertisementContentType')!.value, editForm.get('advertisement')!.value)">open</a><br>
+                            <span class="pull-left">{{ editForm.get('advertisementContentType')!.value }}, {{ byteSize(editForm.get('advertisement')!.value) }}</span>
+                            <button type="button" (click)="editForm.patchValue({advertisement: null});editForm.patchValue({advertisementContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_advertisement" (change)="setFileData($event, 'advertisement', false)"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="advertisement" id="field_advertisement"
+                           formControlName="advertisement"/>
+                    <input type="hidden" class="form-control" name="advertisementContentType" id="field_advertisementContentType"
+                           formControlName="advertisementContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_logo">Logo</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('logoContentType')!.value + ';base64,' + editForm.get('logo')!.value" style="max-height: 100px;" *ngIf="editForm.get('logo')!.value" alt="department image"/>
+                        <div *ngIf="editForm.get('logo')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('logoContentType')!.value }}, {{ byteSize(editForm.get('logo')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('logo', 'logoContentType', 'file_logo')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_logo" (change)="setFileData($event, 'logo', true)" accept="image/*"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="logo" id="field_logo"
+                           formControlName="logo"/>
+                    <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
+                           formControlName="logoContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_location">Location</label>
+                    <select class="form-control" id="field_location" name="location" formControlName="location">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="locationOption.id === editForm.get('location')!.value?.id ? editForm.get('location')!.value : locationOption" *ngFor="let locationOption of locations; trackBy: trackById">{{ locationOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

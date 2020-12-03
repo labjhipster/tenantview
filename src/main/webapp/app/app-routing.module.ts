@@ -25,6 +25,14 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
           path: 'account',
           loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
         },
+        {
+          path: 'company-admin',
+          data: {
+            authorities: ['ROLE_COMPANY_ADMIN'],
+          },
+          canActivate: [UserRouteAccessService],
+          loadChildren: () => import('./company-admin/company-admin-routing.module').then(m => m.CompanyAdminRoutingModule),
+        },
         ...LAYOUT_ROUTES,
       ],
       { enableTracing: DEBUG_INFO_ENABLED }
@@ -32,4 +40,4 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
   ],
   exports: [RouterModule],
 })
-export class TenantviewAppRoutingModule {}
+export class JhipsterSampleApplicationAppRoutingModule {}

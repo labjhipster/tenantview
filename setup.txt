@@ -1,2 +1,6 @@
 npm install -g generator-jhipster && npm install -g yo
 npm install -g generator-jhipster && npm install -g generator-jhipster-tenantview
+
+#jhipster import-jdl *.jdl --blueprints tenantview --relation-tenant-aware --tenant-name Company
+
+#./mvnw -Dskip.npm

@@ -1,0 +1,103 @@
+{
+  "name": "Employee",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String",
+      "javadoc": "The firstname attribute."
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hireDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "salary",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "commissionPct",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "user",
+      "otherEntityField": "login",
+      "ownerSide": true,
+      "useJPADerivedIdentifier": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "job",
+      "otherEntityRelationshipName": "emp",
+      "relationshipName": "job"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "manager",
+      "otherEntityField": "lastName"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "silverBadge",
+      "otherEntityRelationshipName": "employee",
+      "relationshipValidateRules": "required",
+      "relationshipName": "sibag",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "goldenBadge",
+      "otherEntityRelationshipName": "employee",
+      "relationshipValidateRules": "required",
+      "relationshipName": "gobag",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "department",
+      "otherEntityRelationshipName": "employee",
+      "javadoc": "Another side of the same relationship,",
+      "relationshipName": "department",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "jobHistory",
+      "otherEntityRelationshipName": "emp",
+      "relationshipName": "history",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201203075533",
+  "javadoc": "The Employee entity.\\nSecond line in javadoc.",
+  "entityTableName": "employee",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["jhipsterSampleApplication"],
+  "tenantAware": false
+}

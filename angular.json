@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tenantview": {
+    "jhipster-sample-application": {
       "root": "",
       "sourceRoot": "src/main/webapp",
       "projectType": "application",
@@ -29,7 +29,7 @@
       "architect": {}
     }
   },
-  "defaultProject": "tenantview",
+  "defaultProject": "jhipster-sample-application",
   "cli": {
     "packageManager": "npm"
   }

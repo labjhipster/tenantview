@@ -1,0 +1,33 @@
+{
+  "name": "TheLabel",
+  "fields": [
+    {
+      "fieldName": "labelName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength"],
+      "fieldValidateRulesMinlength": "3"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "operation",
+      "otherEntityRelationshipName": "theLabel",
+      "relationshipName": "operation",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201203075033",
+  "entityTableName": "the_label",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "test-root",
+  "applications": ["jhipsterSampleApplication"],
+  "tenantAware": false
+}

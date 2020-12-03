@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
 import { throwError, of } from 'rxjs';
 
-import { TenantviewTestModule } from '../../../test.module';
+import { JhipsterSampleApplicationTestModule } from '../../../test.module';
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/user/account.model';
 import { SettingsComponent } from 'app/account/settings/settings.component';
@@ -18,15 +18,16 @@ describe('Component Tests', () => {
       lastName: 'Doe',
       activated: true,
       email: 'john.doe@mail.com',
-      langKey: 'es',
+      langKey: 'en',
       login: 'john',
       authorities: [],
       imageUrl: '',
+      company: 'MockCompany',
     };
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [TenantviewTestModule],
+        imports: [JhipsterSampleApplicationTestModule],
         declarations: [SettingsComponent],
         providers: [FormBuilder],
       })
@@ -45,10 +46,10 @@ describe('Component Tests', () => {
       // GIVEN
       mockAuth.saveSpy.and.returnValue(of({}));
       const settingsFormValues = {
+        company: 'MockCompany',
         firstName: 'John',
         lastName: 'Doe',
         email: 'john.doe@mail.com',
-        langKey: 'es',
       };
 
       // WHEN

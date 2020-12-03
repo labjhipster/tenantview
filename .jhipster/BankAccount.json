@@ -1,0 +1,93 @@
+{
+  "name": "BankAccount",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "bankNumber",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "agencyNumber",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "lastOperationDuration",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "meanOperationDuration",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "balance",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "openingDay",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lastOperationDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "accountType",
+      "fieldType": "BankAccountType",
+      "fieldValues": "CHECKING,SAVINGS,LOAN"
+    },
+    {
+      "fieldName": "attachment",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "operation",
+      "otherEntityRelationshipName": "bankAccount",
+      "relationshipName": "operation"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "company",
+      "otherEntityRelationshipName": "bankAccount",
+      "relationshipName": "company",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "bankAccount",
+      "relationshipName": "user",
+      "otherEntityField": "login"
+    }
+  ],
+  "changelogDate": "20201203074933",
+  "entityTableName": "bank_account",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "test-root",
+  "applications": ["jhipsterSampleApplication"],
+  "angularJSSuffix": "mySuffix",
+  "tenantAware": true
+}

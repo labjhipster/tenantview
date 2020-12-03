@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="job">
+            <h2><span>Job</span> {{ job.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Title</span></dt>
+                <dd>
+                    <span>{{ job.title }}</span>
+                </dd>
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{ job.type }}</span>
+                </dd>
+                <dt><span>Min Salary</span></dt>
+                <dd>
+                    <span>{{ job.minSalary }}</span>
+                </dd>
+                <dt><span>Max Salary</span></dt>
+                <dd>
+                    <span>{{ job.maxSalary }}</span>
+                </dd>
+                <dt><span>Chore</span></dt>
+                <dd>
+                    <span *ngFor="let chore of job.chores; let last = last">
+                        <a [routerLink]="['/task', chore?.id, 'view']">{{ chore.title }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span>Emp</span></dt>
+                <dd>
+                    <div *ngIf="job.emp">
+                        <a [routerLink]="['/employee', job.emp?.id, 'view']">{{ job.emp?.lastName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/job', job.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

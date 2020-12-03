@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Employee.
+    -->
+    <changeSet id="20201203075533-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="manager_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_manager_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="sibag_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_sibag_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="silver_badge"/>
+
+        <addForeignKeyConstraint baseColumnNames="gobag_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_gobag_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="golden_badge"/>
+
+        <addForeignKeyConstraint baseColumnNames="department_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_department_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="department"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,35 @@
+{
+  "name": "Task",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "job",
+      "otherEntityRelationshipName": "chore",
+      "relationshipName": "linkedJob",
+      "otherEntityField": "title",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201203075733",
+  "entityTableName": "task",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["jhipsterSampleApplication"],
+  "tenantAware": false
+}

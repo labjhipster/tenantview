@@ -9,4 +9,27 @@ eg $input-color: red;
 // Import Bootstrap source files from node_modules
 @import '~bootstrap/scss/bootstrap';
 
+/* ==========================================================================
+Apply order to menu
+========================================================================== */
+
+#home-menu-container {
+  @extend .order-0;
+}
+#entity-menu-container {
+  @extend .order-1;
+}
+#company-admin-menu-container {
+  @extend .order-3;
+}
+#admin-menu-container {
+  @extend .order-10;
+}
+#languages-menu-container {
+  @extend .order-11;
+}
+#account-menu-container {
+  @extend .order-12;
+}
+
 /* jhipster-needle-scss-add-vendor JHipster will add new css style */

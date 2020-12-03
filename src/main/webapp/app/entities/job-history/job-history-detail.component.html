@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="jobHistory">
+            <h2><span>Job History</span> {{ jobHistory.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Start Date</span></dt>
+                <dd>
+                    <span>{{ jobHistory.startDate }}</span>
+                </dd>
+                <dt><span>End Date</span></dt>
+                <dd>
+                    <span>{{ jobHistory.endDate }}</span>
+                </dd>
+                <dt><span>Language</span></dt>
+                <dd>
+                    <span>{{ jobHistory.language }}</span>
+                </dd>
+                <dt><span>Department</span></dt>
+                <dd>
+                    <span *ngFor="let department of jobHistory.departments; let last = last">
+                        <a [routerLink]="['/department', department?.id, 'view']">{{ department.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span>Job</span></dt>
+                <dd>
+                    <span *ngFor="let job of jobHistory.jobs; let last = last">
+                        <a [routerLink]="['/job', job?.id, 'view']">{{ job.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span>Emp</span></dt>
+                <dd>
+                    <span *ngFor="let emp of jobHistory.emps; let last = last">
+                        <a [routerLink]="['/employee', emp?.id, 'view']">{{ emp.firstName }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/job-history', jobHistory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

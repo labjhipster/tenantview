@@ -1,0 +1,31 @@
+{
+  "name": "GoldenBadge",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "identifier",
+      "otherEntityRelationshipName": "goldenBadge",
+      "relationshipValidateRules": "required",
+      "relationshipName": "iden",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20201203075833",
+  "entityTableName": "golden_badge",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["jhipsterSampleApplication"],
+  "tenantAware": false
+}

@@ -3,11 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>es.lab.tenantview</groupId>
-    <artifactId>tenantview</artifactId>
+    <groupId>io.github.jhipster.sample</groupId>
+    <artifactId>jhipster-sample-application</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Tenantview</name>
+    <name>Jhipster Sample Application</name>
 
     <repositories>
         <!-- jhipster-needle-maven-repository -->
@@ -587,7 +587,7 @@
                             <image>adoptopenjdk:11-jre-hotspot</image>
                         </from>
                         <to>
-                            <image>tenantview:latest</image>
+                            <image>jhipstersampleapplication:latest</image>
                         </to>
                         <container>
                             <entrypoint>
@@ -623,11 +623,11 @@
                         <changeLogFile>${project.basedir}/src/main/resources/config/liquibase/master.xml</changeLogFile>
                         <diffChangeLogFile>${project.basedir}/src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                         <driver>org.h2.Driver</driver>
-                        <url>jdbc:h2:file:${project.build.directory}/h2db/db/tenantview</url>
+                        <url>jdbc:h2:file:${project.build.directory}/h2db/db/jhipstersampleapplication</url>
                         <defaultSchemaName></defaultSchemaName>
-                        <username>tenantview</username>
+                        <username>jhipsterSampleApplication</username>
                         <password></password>
-                        <referenceUrl>hibernate:spring:es.lab.tenantview.domain?dialect=org.hibernate.dialect.H2Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
+                        <referenceUrl>hibernate:spring:io.github.jhipster.sample.domain?dialect=org.hibernate.dialect.H2Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                         <verbose>true</verbose>
                         <logging>debug</logging>
                         <contexts>!test</contexts>
